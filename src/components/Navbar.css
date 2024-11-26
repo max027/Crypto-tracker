@@ -1,0 +1,46 @@
+.Nav-Main{
+padding: 10px 30px;
+display: flex;
+align-items:center;
+justify-content:space-between;
+background:#042d5b;
+height: 60px;
+position:relative;
+}
+.Nav-list{
+display: flex;
+gap:30px;
+}
+.Nav-list-item{
+  list-style-type: none;
+  text-decoration:none;
+  color:white;
+}
+.Nav-Home{
+  color:white;
+}
+.Nav-icon{
+  display: none;
+}
+
+@media (max-width:600px){
+  .Nav-list{
+    position: absolute;
+    top:50px;
+    left:0;
+    right:0;
+    flex-direction:column;
+    text-align:center;
+    background-color:#042d5b;
+    gap:0;
+    overflow:hidden;
+  }
+  .Nav-list-item{
+    padding: 20px;
+  }
+
+  .Nav-icon{
+    display: block;
+  }
+}
+
