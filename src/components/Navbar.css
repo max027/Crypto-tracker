@@ -34,6 +34,7 @@ gap:30px;
     background-color:#042d5b;
     gap:0;
     overflow:hidden;
+    display: none;
   }
   .Nav-list-item{
     padding: 20px;
@@ -43,4 +44,12 @@ gap:30px;
     display: block;
   }
 }
+.open{
+  display:flex;
 
+}
+
+.Nav-links{
+text-decoration:none;
+color:white;
+}
