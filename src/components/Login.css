@@ -10,7 +10,7 @@
   align-items:center;
   flex-direction:column;
   width: 300px;
-  border: 1px solid #000;
+  border: 1px solid white;
 }
 .Login-form{
   margin-top: 10px;

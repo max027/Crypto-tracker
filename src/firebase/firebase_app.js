@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-
+import { getAuth } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyBbrn6JXQmc-OrK_cCXw8jAxseYpzuDBn8",
   authDomain: "crypto-tracker-38584.firebaseapp.com",
@@ -10,5 +10,5 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
-export default app;
+const auth=getAuth(app)
+export {app,auth};
