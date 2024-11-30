@@ -2,6 +2,7 @@ import "./Login.css"
 import { auth } from "../firebase/firebase_app";
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useState} from "react";
+import { Link } from "react-router";
 export default function Signup() {
   const [username, setusername] = useState('');
   const [password, setpassword] = useState('');
@@ -41,6 +42,7 @@ export default function Signup() {
     <div className="dash"/>
     <p>or continue with google</p>
     <button className="login-google" onClick={google_submit}>Google</button>
+    <p style={{marginBottom:"5px"}}>already have account <button> <Link className="login-link login-google" to="/login">login</Link></button></p>
     </div>
     </div>
     </div>

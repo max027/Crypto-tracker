@@ -13,6 +13,7 @@ export default function Navbar() {
     <ul  className={nav_class}>
     <li className="Nav-list-item "><Link className="Nav-links" to="/watchlist">Watchlist</Link></li>
     <li className="Nav-list-item "><Link className="Nav-links" to="/account"> Account</Link></li>
+    <li className="Nav-list-item "><Link className="Nav-links" to="/signup"> Signup</Link></li>
     </ul>
     <div className="Nav-icon">
       <svg  onClick={()=>{
