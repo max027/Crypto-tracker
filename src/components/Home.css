@@ -1,11 +1,21 @@
-.list-item{
-  width: 100%;
-  display: flex;
-  justify-content:space-between;
-  font-size:large;
-  gap:10px;
-  list-style-type: none;
+.Home-main{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
   margin-top:10px;
+  font-size:large;
+  align-items:end;
+}
+.items{
+  height:30px;
+  font-size:medium;
+  align-items:center;
+  padding:5px;
 }
 
-
+.items:hover{
+  background-color:#d3d3d3;
+  cursor:pointer;
+}
+.home-container{
+  margin-left:10px;
+}
