@@ -6,6 +6,7 @@ import Watchlist from './components/Watchlist'
 import Account from './components/Account'
 import Login from './components/Login'
 import Signup from './components/Signup'
+import  Coin  from "./components/Coin";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
     <Route path='/account' element={<Account/>}/>
     <Route path='/login' element={<Login/>}/>
     <Route path='/signup' element={<Signup/>}/>
+    <Route path='/coin' element={<Coin/>}/>
     </Routes>
 
     </>

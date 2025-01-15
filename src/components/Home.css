@@ -1,6 +1,6 @@
 .Home-main{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(5,1fr);
   margin-top:10px;
   font-size:large;
   align-items:end;
@@ -14,8 +14,34 @@
 
 .items:hover{
   background-color:#d3d3d3;
-  cursor:pointer;
 }
 .home-container{
   margin-left:10px;
+}
+
+
+@media (max-width:715px){
+  .market_cap{
+    display:none;
+  }
+  .Home-main{
+    grid-template-columns:repeat(4,1fr);
+  }
+}
+
+@media(max-width:550px){
+  .Home-main{
+    grid-template-columns:repeat(3,1fr);
+  }
+  .per_change{
+    display:none;
+  }
+}
+.Home-btn{
+  display: inline;
+  width: 100px;
+  height: 100%;
+}
+.Home-btn:hover{
+  cursor: pointer;
 }
