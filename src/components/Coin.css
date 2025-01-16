@@ -1,0 +1,36 @@
+.Coin-container{
+}
+.coin-info-wrapper{
+width: 100%;
+height: 300px;
+display: flex;
+margin-top:5%;
+}
+.coin-info-card{
+margin:4px;
+border: 0.5px solid #000;
+width: 33.3%;
+height: 75%;
+}
+.coin-header{
+  padding:10px;
+}
+.inner-grid{
+  font-size:large;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  padding:10px;
+  column-gap:10px;
+  row-gap:50px;
+}
+.coin-info{
+  display:flex;
+  align-items:center;
+}
+.watchlist{
+  width: 100px;
+  height: 30px;
+}
+.Coin-chart{
+  margin-top:10px;
+}
