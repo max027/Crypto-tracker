@@ -24,7 +24,15 @@ ChartJS.register(
 
 export default function Chart(props) {
 
-  const [data, setdata] = useState({datasets:[]});
+  const [data, setdata] = useState({ 
+    labels: [], 
+    datasets: [{ 
+      label: 'Price (USD)', 
+      data: [], 
+      borderColor: 'rgb(255, 99, 132)', 
+      backgroundColor: 'rgba(255, 99, 132, 0.5)', 
+    }] 
+  });
   const [options, setoptions] = useState({
     responsive: true,
     plugins: {
@@ -39,11 +47,11 @@ export default function Chart(props) {
   })
 
   useEffect(() => {
- 
+
     const fetch_history=async()=>{
       const history_data=await fetch(`https://api.coincap.io/v2/assets/${props.coin}/history?interval=d1`);
       const history_val=await history_data.json();
-      setdata({
+      const chart_data={
         labels:history_val.data.map((prices)=>{
           return moment.unix(prices.time/1000).format('MM-DD')
         }),
@@ -57,14 +65,14 @@ export default function Chart(props) {
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
           },
         ],
-      })
+      }
+      setdata(chart_data);
     }
 
     fetch_history();
-  }, [])
-  
-  console.log(data);
+  }, [props.coin])
+
   return <div>
-   <Line options={options} data={data} />
+    {data?<Line options={options} data={data}/>:""}
     </div>
 }
