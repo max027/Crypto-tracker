@@ -1,10 +1,23 @@
-import { useState } from "react"
+import { useState} from "react"
 import "./Navbar.css"
-import { Link } from "react-router";
-export default function Navbar() {
+import { Link, useNavigate } from "react-router";
+import { auth } from "../firebase/firebase_app";
+import {signOut } from "firebase/auth";
+
+export default function Navbar({loggedin_state,user_status}) {
 
   let [menu,setmenu]=useState(false);
   let nav_class=`Nav-list ${menu?"open":""}`
+  const navigate=useNavigate(); 
+  const logout=()=>{
+   signOut(auth).then(()=>{
+     console.log("signout success"); 
+     loggedin_state(false);
+     navigate("/signup");
+   }).catch((error)=>{
+     console.log(error);
+   })
+  }
   return (
     <nav className="Nav-Main">
     <div className="Nav-Home">
@@ -13,7 +26,9 @@ export default function Navbar() {
     <ul  className={nav_class}>
     <li className="Nav-list-item "><Link className="Nav-links" to="/watchlist">Watchlist</Link></li>
     <li className="Nav-list-item "><Link className="Nav-links" to="/account"> Account</Link></li>
-    <li className="Nav-list-item "><Link className="Nav-links" to="/signup"> Signup</Link></li>
+    {
+      user_status?<li className="Nav-list-item logout" onClick={logout}>Logout</li>:<li className="Nav-list-item "><Link className="Nav-links" to="/signup">Signup</Link></li>
+    }
     </ul>
     <div className="Nav-icon">
       <svg  onClick={()=>{

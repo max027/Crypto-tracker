@@ -2,9 +2,11 @@ import "./Login.css"
 import { auth } from "../firebase/firebase_app";
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useState} from "react";
-export default function Login() {
+import { useNavigate } from "react-router";
+export default function Login({loggedin_state}) {
   const [username, setusername] = useState('');
   const [password, setpassword] = useState('');
+  const navigate=useNavigate();
   const google=new GoogleAuthProvider();
   const submit_form=(e)=>{
     e.preventDefault();
@@ -14,6 +16,8 @@ export default function Login() {
       signInWithEmailAndPassword(auth,username,password).then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
+        loggedin_state(true);
+        navigate("/");
       })
         .catch((error) => {
           const errorCode = error.code;
@@ -26,7 +30,8 @@ export default function Login() {
 
   const google_submit=()=>{
     signInWithPopup(auth,google).then((user)=>{
-      console.log(user)
+      loggedin_state(true);
+      navigate("/");
     }).catch((err)=>{
       console.log(err)
     })

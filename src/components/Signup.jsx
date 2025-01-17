@@ -2,18 +2,20 @@ import "./Login.css"
 import { auth } from "../firebase/firebase_app";
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useState} from "react";
-import { Link } from "react-router";
-export default function Signup() {
+import { Link, useNavigate } from "react-router";
+export default function Signup({loggedin_state}) {
   const [username, setusername] = useState('');
   const [password, setpassword] = useState('');
   const google=new GoogleAuthProvider();
+  const navigate=useNavigate();
   const submit_form=(e)=>{
     e.preventDefault();
     if (password.length<8) {
      console.log("weak password");
     }else{
       createUserWithEmailAndPassword(auth,username,password).then((user)=>{
-        console.log(user.user)
+      loggedin_state(true);
+        navigate("/");
       }).catch((e)=>console.log(e.code));
       setusername('');
       setpassword('');
@@ -23,6 +25,8 @@ export default function Signup() {
   const google_submit=()=>{
       signInWithPopup(auth,google).then((user)=>{
         console.log(user)
+        loggedin_state(true);
+        navigate("/");
       }).catch((err)=>{
         console.log(err)
       })

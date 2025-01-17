@@ -1,15 +1,15 @@
 .Nav-Main{
-padding: 10px 30px;
-display: flex;
-align-items:center;
-justify-content:space-between;
-background:#042d5b;
-height: 60px;
-position:relative;
+  padding: 10px 30px;
+  display: flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#042d5b;
+  height: 60px;
+  position:relative;
 }
 .Nav-list{
-display: flex;
-gap:30px;
+  display: flex;
+  gap:30px;
 }
 .Nav-list-item{
   list-style-type: none;
@@ -61,3 +61,8 @@ gap:30px;
   background-color:#2188ff;
 }
 
+.logout:hover{
+border:0.5px solid red;
+background-color:red;
+cursor:pointer;
+}
