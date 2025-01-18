@@ -3,7 +3,6 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Watchlist from './components/Watchlist'
-import Account from './components/Account'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import  Coin  from "./components/Coin";
@@ -22,7 +21,6 @@ function App() {
       }
     })
   }, [])
-  
   return (
     <>
     <Navbar loggedin_state={setloggedin} user_status={loggedin} />
@@ -30,7 +28,6 @@ function App() {
     <Route path='/' element={<Home/>}/>
     <Route element={<Private_routes loggedin={loggedin}/>}>
     <Route path='/watchlist' element={<Watchlist/>}/>
-    <Route path='/account' element={<Account/>}/>
     <Route path='/coin' element={<Coin/>}/>
     </Route>
     <Route path='/login'  element={<Login loggedin_state={setloggedin}/>}/>

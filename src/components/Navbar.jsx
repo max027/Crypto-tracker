@@ -25,7 +25,6 @@ export default function Navbar({loggedin_state,user_status}) {
     </div>
     <ul  className={nav_class}>
     <li className="Nav-list-item "><Link className="Nav-links" to="/watchlist">Watchlist</Link></li>
-    <li className="Nav-list-item "><Link className="Nav-links" to="/account"> Account</Link></li>
     {
       user_status?<li className="Nav-list-item logout" onClick={logout}>Logout</li>:<li className="Nav-list-item "><Link className="Nav-links" to="/signup">Signup</Link></li>
     }

@@ -1,5 +1,7 @@
 import { useLocation } from "react-router"
 import { useEffect, useState} from "react";
+import {db} from "../firebase/firebase_app";
+import { collection, addDoc } from "firebase/firestore";
 import "./Coin.css"
 import Chart from "./Chart";
 
@@ -8,10 +10,20 @@ export default function Coin() {
   const [coin_data, setcoin_data] = useState({});
   const [market, setmarket] = useState({});
 
+  async function add_to_watchlist() {
+    try {
+      const docRef = await addDoc(collection(db, "watchlist"), {
+        coin:coin_data.nameid,
+        coin_id:coin_data.id
+      });
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  }
   useEffect(() => {
     const fetch_market=async()=>{
-    const market_data=await fetch(`https://api.coinlore.net/api/coin/markets/?id=${state.symbol}`)    
-    const market_val=await market_data.json();
+      const market_data=await fetch(`https://api.coinlore.net/api/coin/markets/?id=${state.symbol}`)    
+      const market_val=await market_data.json();
       let i=0; 
       for(let data of market_val){
         i++;
@@ -23,7 +35,7 @@ export default function Coin() {
       }
     }
     fetch_market();
-   const fetch_coin=async()=> {
+    const fetch_coin=async()=> {
       try{
 
         const val=await fetch(`https://api.coinlore.net/api/ticker/?id=${state.symbol}`);
@@ -33,7 +45,7 @@ export default function Coin() {
       }catch(error){
         console.log(error)
       }
-   } 
+    } 
     fetch_coin();
 
   }, [])
@@ -42,7 +54,7 @@ export default function Coin() {
     <div className="Coin-container">
     <div className="coin-info">
     <h1 className="coin-header">{coin_data.name} ({coin_data.symbol})</h1> 
-    <button className="watchlist">watchlist</button>
+    <button className="watchlist" onClick={add_to_watchlist}>watchlist</button>
     </div>
     <div className="Coin-chart">
     <Chart coin={coin_data.nameid} />
