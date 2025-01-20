@@ -11,7 +11,7 @@ import {
 import { useEffect,useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import moment from 'moment';
-
+import "./Chart.css"
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -23,7 +23,7 @@ ChartJS.register(
 );
 
 export default function Chart(props) {
-
+  const [timeframe, settimeframe] = useState("d1")
   const [data, setdata] = useState({ 
     labels: [], 
     datasets: [{ 
@@ -41,7 +41,7 @@ export default function Chart(props) {
       },
       title: {
         display: true,
-        text: 'Chart.js Line Chart',
+        text: '',
       },
     },
   })
@@ -49,7 +49,7 @@ export default function Chart(props) {
   useEffect(() => {
 
     const fetch_history=async()=>{
-      const history_data=await fetch(`https://api.coincap.io/v2/assets/${props.coin}/history?interval=d1`);
+      const history_data=await fetch(`https://api.coincap.io/v2/assets/${props.coin}/history?interval=${timeframe}`);
       const history_val=await history_data.json();
       const chart_data={
         labels:history_val.data.map((prices)=>{
@@ -57,7 +57,7 @@ export default function Chart(props) {
         }),
         datasets: [
           {
-            label: 'Dataset 1',
+            label: timeframe,
             data:history_val.data.map((prices)=>{
               return prices.priceUsd
             }),
@@ -70,9 +70,15 @@ export default function Chart(props) {
     }
 
     fetch_history();
-  }, [props.coin])
+  }, [props.coin,timeframe])
 
   return <div>
+    <div className="chart-button">
+    <button className="timeframe" onClick={()=>settimeframe("h6")}>6H</button>
+    <button className="timeframe" onClick={()=>settimeframe("h12")}>12H</button>
+    <button className="timeframe" onClick={()=>settimeframe("d1")}>1D</button>
+    <button className="timeframe" onClick={()=>settimeframe("m1")} >1M</button>
+    </div>
     {data?<Line options={options} data={data}/>:""}
     </div>
 }

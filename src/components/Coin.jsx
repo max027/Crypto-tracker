@@ -9,7 +9,6 @@ export default function Coin() {
   const {state}=useLocation();
   const [coin_data, setcoin_data] = useState({});
   const [market, setmarket] = useState({});
-
   async function add_to_watchlist() {
     try {
       const docRef = await addDoc(collection(db, "watchlist"), {

@@ -1,0 +1,11 @@
+.chart-button{
+  height:40px;
+  display:flex;
+  justify-content:space-between;
+  width: 400px;
+  margin:4px;
+}
+.timeframe{
+  height:100%;
+  width: 80px;
+}
