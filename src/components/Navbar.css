@@ -66,3 +66,19 @@ border:0.5px solid red;
 background-color:red;
 cursor:pointer;
 }
+
+
+.Nav-search{
+  color:white;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+}
+.Search{
+  float: right;
+  padding: 2px;
+  border: none;
+  font-size: 15px;
+  margin-right:4px;
+}
+
