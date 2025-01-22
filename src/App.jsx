@@ -10,6 +10,7 @@ import  Private_routes  from "./components/Private_routes";
 import { useEffect, useState } from 'react'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from './firebase/firebase_app'
+
 function App() {
   const [loggedin, setloggedin] = useState(false); 
   useEffect(() => {

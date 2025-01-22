@@ -3,14 +3,13 @@ import { getAuth } from "firebase/auth";
 import {getFirestore} from "firebase/firestore"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBbrn6JXQmc-OrK_cCXw8jAxseYpzuDBn8",
-  authDomain: "crypto-tracker-38584.firebaseapp.com",
-  projectId: "crypto-tracker-38584",
-  storageBucket: "crypto-tracker-38584.firebasestorage.app",
-  messagingSenderId: "477588845518",
-  appId: "1:477588845518:web:b5ee1110b21e499493f19f"
+  apiKey: `${import.meta.env.VITE_GOOGLE_API_KEY}`,
+  authDomain: `${import.meta.env.VITE_AUTHDOMAIN}`,
+  projectId: `${import.meta.env.VITE_PROJECTID}`,
+  storageBucket: `${import.meta.env.VITE_STORAGEBUCKET}`,
+  messagingSenderId: `${import.meta.env.VITE_MESSAGINGSENDERID}`,
+  appId:`${import.meta.env.APPID }`
 };
-
 const app = initializeApp(firebaseConfig);
 const auth=getAuth(app);
 const db=getFirestore(app);
