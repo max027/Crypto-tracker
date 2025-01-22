@@ -7,7 +7,7 @@ export default function Home() {
   const navigate=useNavigate();
   async function fetch_coin() {
     try {
-      const val=await fetch('https://api.coinlore.net/api/tickers/?limit=20'); 
+      const val=await fetch('https://api.coinlore.net/api/tickers/?limit=100'); 
       const data=await val.json(); 
       setcoins(data.data);
     } catch (error) {
