@@ -11,6 +11,9 @@ To deploy this project run
   npm run dev
 ```
 
+## Screenshots
+![App Screenshot](/src/assets/screenshot1.png)
+![App Screenshot](/src/assets/screenshot2.png)
 
 ## Features
 
