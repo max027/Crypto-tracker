@@ -12,8 +12,8 @@ To deploy this project run
 ```
 
 ## Screenshots
-![App Screenshot](/src/assets/screenshot1.png)
-![App Screenshot](/src/assets/screenshot2.png)
+![App Screenshot](/src/assets/screenshot1.png?raw=true)
+![App Screenshot](/src/assets/screenshot2.png?raw=true)
 
 ## Features
 
