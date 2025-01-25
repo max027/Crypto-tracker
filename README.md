@@ -12,7 +12,7 @@ To deploy this project run
 ```
 
 ## Screenshots
-![App Screenshot](/src/assets/screenshot1.png?raw=true)
+![App Screenshot](https://raw.github.com/max027/Crypto-tracker/src/assets/screenshot2.png)
 ![App Screenshot](/src/assets/screenshot2.png?raw=true)
 
 ## Features
